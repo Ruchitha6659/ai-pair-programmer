@@ -1,0 +1,83 @@
+{
+  "name": "ai-pair-programmer",
+  "displayName": "ai-pair-programmer",
+  "description": "ai-powered codinga ssistant for code explanation,debugging,and cross-file context",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-pair-programmer.explainCode",
+        "title": "AI: Explain Selected Code",
+        "icon": "$(book)"
+      },
+      {
+        "command": "ai-pair-programmer.fixError",
+        "title": "AI: Fix This Error",
+        "icon": "$(wrench)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ai-pair-programmer.explainCode",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        },
+        {
+          "command": "ai-pair-programmer.fixError",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aiPairProgrammer",
+          "title": "AI Pair Programmer",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "aiPairProgrammer": [
+        {
+          "type": "webview",
+          "id": "aiPairProgrammer.chatView",
+          "name": "Chat",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.125.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "dependencies": {
+    "axios": "^1.18.0",
+    "dotenv": "^17.4.2"
+  }
+}
