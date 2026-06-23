@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ai-pair-programmer README
 
 This is the README for your extension "ai-pair-programmer". After writing up a brief description, we recommend including the following sections.
@@ -69,3 +70,6 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+=======
+# ai-pair-programmer
+>>>>>>> d656e5b808ac8eafecccd793d22eeb2bdc49bcc1
